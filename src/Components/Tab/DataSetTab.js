@@ -3,7 +3,7 @@ import data from "../../Assets/Data";
 import Tables from "./table";
 
 function DataSetTab(props) {
-  const { renderComponent } = props;
+  const { renderComponent,toggleValue } = props;
   const [newData, setNewData] = useState(data.body);
   const [tabData, setTabData] = useState({ upComing: [], live: [], past: [] });
 
@@ -74,7 +74,7 @@ function DataSetTab(props) {
     }
   };
 
-  return <Tables data={dataToRender()} updateData={updateData} />;
+  return <Tables data={dataToRender()} updateData={updateData} toggleValue={toggleValue}/>;
 }
 
 export default DataSetTab;

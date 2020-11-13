@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 
 function Header(props) {
-  const {renderComponent,componentToRender} = props;
+  const { renderComponent, componentToRender, toggleValue } = props;
   return (
     <article className="navWrapper">
       <nav>
@@ -13,7 +13,7 @@ function Header(props) {
             }`}
           >
             <span onClick={() => componentToRender("UpcomingCampaigns")}>
-              Upcoming Campaigns
+              {toggleValue ? "Upcoming Campaigns" : "Próximas Campañas"}
             </span>
           </li>
           <li
@@ -22,7 +22,7 @@ function Header(props) {
             }`}
           >
             <span onClick={() => componentToRender("LiveCampaigns")}>
-              Live Campaigns
+              {toggleValue ? "Live Campaigns" : "Campañas En Vivo"}
             </span>
           </li>
           <li
@@ -31,7 +31,7 @@ function Header(props) {
             }`}
           >
             <span onClick={() => componentToRender("PastCampaigns")}>
-              Past Campaigns
+              {toggleValue ? "Past Campaigns" : "Campañas pasadas"}
             </span>
           </li>
         </ul>

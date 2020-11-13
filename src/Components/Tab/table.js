@@ -4,6 +4,7 @@ import Price from "./Price";
 import "./table.css";
 
 function Tables(props) {
+  const { toggleValue } = props;
   const months = [
     "Jan",
     "Feb",
@@ -35,10 +36,14 @@ function Tables(props) {
       <table className="maintable">
         <thead>
           <tr>
-            <th style={{ width: "10%" }}>Date</th>
-            <th style={{ width: "24%" }}>Campaign</th>
-            <th style={{ width: "20%" }}>View</th>
-            <th style={{ width: "46%" }}>Actions</th>
+            <th style={{ width: "10%" }}>{toggleValue ? "Date" : "Fecha"}</th>
+            <th style={{ width: "24%" }}>
+              {toggleValue ? "Campaign" : "Campaña"}
+            </th>
+            <th style={{ width: "20%" }}>{toggleValue ? "View" : "Ver"}</th>
+            <th style={{ width: "46%" }}>
+              {toggleValue ? "Actions" : "Accións"}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -72,6 +77,7 @@ function Tables(props) {
                     price: item["price"],
                     image: item["image_url"],
                   }}
+                  toggleValue={toggleValue}
                 />
               </td>
               <td style={{ width: "46%" }}>
@@ -81,7 +87,7 @@ function Tables(props) {
                       alt="csv"
                       src={require("../../Assets/file.png").default}
                     />
-                    <span> CSV</span>
+                    <span> {toggleValue ? "CSV" : "Archivo"}</span>
                   </article>
                   <article className="report-container">
                     <img
@@ -90,7 +96,7 @@ function Tables(props) {
                         require("../../Assets/statistics-report.png").default
                       }
                     />
-                    <span>Report</span>
+                    <span>{toggleValue ? "Report" : "Reporte"}</span>
                   </article>
                   <Calendar
                     item={{
@@ -99,6 +105,7 @@ function Tables(props) {
                       id: item["id"],
                     }}
                     updatedData={props.updateData}
+                    toggleValue={toggleValue}
                   />
                 </article>
               </td>

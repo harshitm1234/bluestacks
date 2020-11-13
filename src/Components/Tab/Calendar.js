@@ -19,14 +19,9 @@ function CalendarView(props) {
 
   return (
     <div className="calendarDiv">
-      <img
-        alt="calendar"
-        src={require("../../Assets/calendar.png").default}
-      />
-      <button
-        onClick={handleClick}
-      >
-        Schedule Again
+      <img alt="calendar" src={require("../../Assets/calendar.png").default} />
+      <button onClick={handleClick}>
+        {props.toggleValue ? "Schedule Again" : "Programar de nuevo"}
       </button>
       {viewCalendar && <Calendar onChange={handleChange} value={date} />}
     </div>
