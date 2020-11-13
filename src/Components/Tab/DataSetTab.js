@@ -21,8 +21,11 @@ function DataSetTab(props) {
     setNewData(newJsonData);
     mapData(newJsonData);
   };
-  
+
   const mapData = (dataToMap) => {
+    dataToMap = dataToMap.sort((a, b) =>
+      a.createdOn < b.createdOn ? 1 : b.createdOn < a.createdOn ? -1 : 0
+    );
     let upComing = [];
     let live = [];
     let past = [];
@@ -49,7 +52,7 @@ function DataSetTab(props) {
   const daySection = (date) => {
     let currDate = new Date();
     let diff = Math.abs(date.getTime() - currDate.getTime());
-    diff = Math.ceil(diff / (1000 * 60 * 60 * 24))
+    diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
     date = date.setHours(0, 0, 0, 0);
     currDate = currDate.setHours(0, 0, 0, 0);
     if (date - currDate == 0) {
@@ -71,7 +74,7 @@ function DataSetTab(props) {
     }
   };
 
-  return <Tables data={dataToRender()} updateData={updateData}/>;
+  return <Tables data={dataToRender()} updateData={updateData} />;
 }
 
 export default DataSetTab;

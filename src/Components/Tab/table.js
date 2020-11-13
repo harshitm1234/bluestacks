@@ -35,16 +35,16 @@ function Tables(props) {
       <table className="maintable">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Campaign</th>
-            <th>View</th>
-            <th>Actions</th>
+            <th style={{ width: "10%" }}>Date</th>
+            <th style={{ width: "24%" }}>Campaign</th>
+            <th style={{ width: "20%" }}>View</th>
+            <th style={{ width: "46%" }}>Actions</th>
           </tr>
         </thead>
         <tbody>
           {props.data.map((item, idx) => (
             <tr key={idx}>
-              <td>
+              <td style={{ width: "10%" }}>
                 <article className="date-container">
                   <span className="bold">
                     {dateFormat(new Date(parseInt(item["createdOn"])))}
@@ -64,7 +64,7 @@ function Tables(props) {
                   </div>
                 </article>
               </td>
-              <td style={{ width: "19%" }}>
+              <td style={{ width: "20%" }}>
                 <Price
                   item={{
                     name: item["name"],
@@ -86,7 +86,6 @@ function Tables(props) {
                   <article className="report-container">
                     <img
                       alt="report"
-                      className="ml-5"
                       src={
                         require("../../Assets/statistics-report.png").default
                       }
