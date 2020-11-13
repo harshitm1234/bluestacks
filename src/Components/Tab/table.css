@@ -1,0 +1,88 @@
+.maintable {
+  color: #57698a;
+  background-color: #fbfbfb;
+  width: 100%;
+  border: 1px solid lightgrey;
+  table-layout: auto;
+}
+
+.maintable > tbody > tr > td {
+  padding: 5px 10px;
+  color: #57698a;
+}
+
+.maintable > thead > tr {
+  background-color: #f1f1f4;
+}
+
+.maintable > thead > tr > th {
+  text-align: start;
+  padding: 0 10px;
+}
+
+.actiondata {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.campaign {
+  display: flex;
+  align-items: center;
+}
+
+.campaign > img {
+  width: 40px;
+  height: 40px;
+}
+
+.campaign-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.campaign-text > .bold {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.campaign-text > .semibold {
+  font-weight: 200;
+}
+
+.csv-container > img,
+.report-container > img {
+  width: 25px;
+  height: 25px;
+}
+
+.csv-container > span,
+.report-container > span {
+  padding: 1px 6px;
+}
+
+.csv-container,
+.report-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.report-container{
+    margin-left: 10px;
+}
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-container > .bold {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.date-container > .semibold {
+  font-weight: 200;
+  font-style: italic;
+}

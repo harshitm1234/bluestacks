@@ -1,0 +1,18 @@
+.price > img {
+  width: 25px;
+  height: 25px;
+}
+
+.price{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.price > button{
+    color: #57698a;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}

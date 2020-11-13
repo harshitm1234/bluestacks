@@ -1,0 +1,20 @@
+.calendarDiv {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.calendarDiv > img {
+  width: 25px;
+  height: 25px;
+}
+
+.calendarDiv > button{
+    color: #57698a;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
