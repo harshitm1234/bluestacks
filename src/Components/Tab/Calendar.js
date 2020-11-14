@@ -1,11 +1,40 @@
-import React, { useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 
 function CalendarView(props) {
   const [date, setDate] = useState(new Date());
   const [viewCalendar, setViewCalendar] = useState(false);
+  /**
+   * Reference to capture clicks made on and outside of component
+   * We will control show/hide of Calendar on basis of this
+   * */
+  const componentReference = useRef(null);
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick, false);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick, false);
+    };
+  }, []);
+
+  /**
+   * Check if clicked outside calendar then close calendar
+   * @param {*} e 
+   */
+  const handleOutsideClick = (e) => {
+    if (componentReference.current?.contains(e.target)) {
+      return;
+    }
+    if(!viewCalendar){
+        setViewCalendar(false);
+    }
+  };
+
+  /**
+   * Handle date change from calendar
+   * @param {} date
+   */
   const handleChange = (date) => {
     const time = new Date(date).getTime() + 5.5 * 3600000; // for Indian std Time
     props.updatedData(time, props.item);
@@ -13,6 +42,9 @@ function CalendarView(props) {
     setViewCalendar(false);
   };
 
+  /**
+   * Handle Schedule again click view to hide and show calendar
+   */
   const handleClick = () => {
     setViewCalendar((prevState) => !prevState);
   };
@@ -23,7 +55,11 @@ function CalendarView(props) {
       <button onClick={handleClick}>
         {props.toggleValue ? "Schedule Again" : "Programar de nuevo"}
       </button>
-      {viewCalendar && <Calendar onChange={handleChange} value={date} />}
+      {viewCalendar && (
+        <div ref={componentReference}>
+          <Calendar onChange={handleChange} value={date} />
+        </div>
+      )}
     </div>
   );
 }

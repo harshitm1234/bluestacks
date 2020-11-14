@@ -1,6 +1,7 @@
 .price > img {
   width: 25px;
   height: 25px;
+  padding: 2px;
 }
 
 .price{
@@ -15,4 +16,5 @@
     border: none;
     cursor: pointer;
     text-decoration: none;
+    padding: 2px;
 }

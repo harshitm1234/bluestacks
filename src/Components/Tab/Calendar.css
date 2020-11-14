@@ -8,6 +8,7 @@
 .calendarDiv > img {
   width: 25px;
   height: 25px;
+  padding: 2px;
 }
 
 .calendarDiv > button{
@@ -17,4 +18,5 @@
     border: none;
     cursor: pointer;
     text-decoration: none;
+    padding: 2px;
 }
