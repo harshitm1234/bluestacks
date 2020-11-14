@@ -60,5 +60,8 @@
     .navElement {
       padding: 16px 7.5px;
     }
+    .navElement > span {
+      font-size: 16px;
+    }
   }
   

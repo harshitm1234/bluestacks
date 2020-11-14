@@ -6,3 +6,14 @@
   font-size: 28px;
   color: rgb(16, 16, 54);
 }
+
+@media only screen and (max-width: 600px) {
+  .mainArea {
+    padding: 8px 50px;
+  }
+
+  .mainArea > h1 {
+    font-size: 22px;
+  }
+}
+

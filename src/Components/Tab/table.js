@@ -36,12 +36,12 @@ function Tables(props) {
       <table className="maintable">
         <thead>
           <tr>
-            <th style={{ width: "11%" }}>{toggleValue ? "Date" : "Fecha"}</th>
-            <th style={{ width: "24%" }}>
+            <th>{toggleValue ? "Date" : "Fecha"}</th>
+            <th>
               {toggleValue ? "Campaign" : "Campaña"}
             </th>
-            <th style={{ width: "19%" }}>{toggleValue ? "View" : "Ver"}</th>
-            <th style={{ width: "46%" }}>
+            <th>{toggleValue ? "View" : "Ver"}</th>
+            <th>
               {toggleValue ? "Actions" : "Accións"}
             </th>
           </tr>
@@ -49,7 +49,7 @@ function Tables(props) {
         <tbody>
           {props.data.map((item, idx) => (
             <tr key={idx}>
-              <td style={{ width: "11%" }}>
+              <td>
                 <article className="date-container">
                   <span className="bold">
                     {dateFormat(new Date(parseInt(item["createdOn"])))}
@@ -57,7 +57,7 @@ function Tables(props) {
                   <span className="semibold">{item.dateDiff}</span>
                 </article>
               </td>
-              <td style={{ width: "24%" }}>
+              <td>
                 <article className="campaign">
                   <img
                     src={require(`./../../Assets/${item["image_url"]}`).default}
@@ -69,7 +69,7 @@ function Tables(props) {
                   </div>
                 </article>
               </td>
-              <td style={{ width: "19%" }}>
+              <td>
                 <Price
                   item={{
                     name: item["name"],
@@ -80,7 +80,7 @@ function Tables(props) {
                   toggleValue={toggleValue}
                 />
               </td>
-              <td style={{ width: "46%" }}>
+              <td>
                 <article className="actiondata">
                   <article className="csv-container">
                     <img

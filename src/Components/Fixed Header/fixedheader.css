@@ -8,3 +8,13 @@
   width: 170px;
   height: 50px;
 }
+
+@media only screen and (max-width: 600px) {
+  .fixedheader {
+    padding: 8px 50px;
+  }
+  .fixedheader > img {
+    width: 150px;
+    height: 50px;
+  }
+}

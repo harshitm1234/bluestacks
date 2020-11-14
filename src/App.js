@@ -13,7 +13,6 @@ class App extends React.Component {
     Firebase.initializeApp(config);
 
     this.state = {
-      data: [],
       renderComponent: "UpcomingCampaigns",
       toggleValue: true,
     };
@@ -24,7 +23,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { developers, renderComponent, toggleValue } = this.state;
+    const {renderComponent, toggleValue } = this.state;
     return (
       <>
         <FixedHeader />
