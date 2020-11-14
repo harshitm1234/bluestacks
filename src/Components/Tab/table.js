@@ -36,11 +36,11 @@ function Tables(props) {
       <table className="maintable">
         <thead>
           <tr>
-            <th style={{ width: "10%" }}>{toggleValue ? "Date" : "Fecha"}</th>
+            <th style={{ width: "11%" }}>{toggleValue ? "Date" : "Fecha"}</th>
             <th style={{ width: "24%" }}>
               {toggleValue ? "Campaign" : "Campaña"}
             </th>
-            <th style={{ width: "20%" }}>{toggleValue ? "View" : "Ver"}</th>
+            <th style={{ width: "19%" }}>{toggleValue ? "View" : "Ver"}</th>
             <th style={{ width: "46%" }}>
               {toggleValue ? "Actions" : "Accións"}
             </th>
@@ -49,7 +49,7 @@ function Tables(props) {
         <tbody>
           {props.data.map((item, idx) => (
             <tr key={idx}>
-              <td style={{ width: "10%" }}>
+              <td style={{ width: "11%" }}>
                 <article className="date-container">
                   <span className="bold">
                     {dateFormat(new Date(parseInt(item["createdOn"])))}
@@ -69,7 +69,7 @@ function Tables(props) {
                   </div>
                 </article>
               </td>
-              <td style={{ width: "20%" }}>
+              <td style={{ width: "19%" }}>
                 <Price
                   item={{
                     name: item["name"],

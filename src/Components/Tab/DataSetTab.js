@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
-import data from "../../Assets/Data";
 import Tables from "./table";
+import Firebase from "firebase";
 
 function DataSetTab(props) {
-  const { renderComponent,toggleValue } = props;
-  const [newData, setNewData] = useState(data.body);
+  const { renderComponent, toggleValue } = props;
+  const [newData, setNewData] = useState([]);
   const [tabData, setTabData] = useState({ upComing: [], live: [], past: [] });
 
   useEffect(() => {
-    mapData(data.body);
+    getUserData();
   }, []);
+
+  /**
+   * Fetch Json Data from Firebase
+   */
+  const getUserData = () => {
+    let ref = Firebase.database().ref("/");
+    ref.on("value", (snapshot) => {
+      let state = snapshot.val();
+      state = state ? state.body : []; //Check if we are able to fetch data from firebase
+      setNewData(state);
+      mapData(state);
+    });
+  };
 
   const updateData = (newdate, item) => {
     const newJsonData = newData.map((data) => {
@@ -74,7 +87,13 @@ function DataSetTab(props) {
     }
   };
 
-  return <Tables data={dataToRender()} updateData={updateData} toggleValue={toggleValue}/>;
+  return (
+    <Tables
+      data={dataToRender()}
+      updateData={updateData}
+      toggleValue={toggleValue}
+    />
+  );
 }
 
 export default DataSetTab;
