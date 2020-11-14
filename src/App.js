@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 import FixedHeader from "./Components/Fixed Header/fixedheader";
 import Header from "./Components/Header/Header";
