@@ -1,7 +1,5 @@
 .calendarDiv {
   display: flex;
-  justify-content: center;
-  margin-left: 10px;
   align-items: center;
 }
 
@@ -19,4 +17,25 @@
     cursor: pointer;
     text-decoration: none;
     padding: 2px;
+}
+
+.calendar{
+  display: block;
+  margin-left: 10px;
+}
+
+.react-calendar{
+  max-width: 250px;
+}
+
+@media screen and (max-width: 601px) {
+  .calendarDiv{
+    justify-content: flex-start;
+    margin: 3px 0;
+  }
+  .calendar{
+    display: block;
+    justify-content: flex-start;
+    margin: 3px 0;
+  }
 }

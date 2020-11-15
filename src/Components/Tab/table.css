@@ -103,11 +103,11 @@
   width: 11%;
 }
 
-.maintable > tbody > tr > td:nth-of-type(2) {
+.maintable > tbody >tr >  td:nth-of-type(2) {
   width: 24%;
 }
 
-.maintable > tbody > tr > td:nth-of-type(3) {
+.maintable > tbody >tr >  td:nth-of-type(3) {
   width: 19%;
 }
 
@@ -129,4 +129,48 @@
 
 .maintable > thead > tr > th:nth-of-type(4) {
   width: 46%;
+}
+
+@media screen and (max-width: 601px) {
+  .maintable {
+    word-wrap: break-word;
+  }
+  table.maintable thead {
+    display: none;
+  }
+  table.maintable > tbody > tr > td {
+    display: block;
+    float: left; /* ie9 and under hack */
+    width: 100% !important;
+    clear: both;
+    background: #f5f5f5;
+    padding: 10px 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  table.maintable tbody,
+  table.maintable tbody > tr {
+    display: block;
+  }
+  .maintable > tbody > tr > td:before {
+    content: attr(data-th);
+    display: block;
+    font-weight: bold;
+    margin: 0 0 2px;
+    color: #000;
+  }
+  .maintable tbody tr {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .actiondata {
+    display: block;
+  }
+  .csv-container,
+  .report-container {
+    justify-content: flex-start;
+    margin: 3px 0;
+  }
 }

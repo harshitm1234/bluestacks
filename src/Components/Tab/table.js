@@ -36,12 +36,12 @@ function Tables(props) {
       <table className="maintable">
         <thead>
           <tr>
-            <th>{toggleValue ? "Date" : "Fecha"}</th>
-            <th>
+            <th data scope="col">{toggleValue ? "Date" : "Fecha"}</th>
+            <th scope="col">
               {toggleValue ? "Campaign" : "Campaña"}
-            </th>
-            <th>{toggleValue ? "View" : "Ver"}</th>
-            <th>
+            </th >
+            <th scope="col">{toggleValue ? "View" : "Ver"}</th>
+            <th scope="col">
               {toggleValue ? "Actions" : "Accións"}
             </th>
           </tr>
@@ -49,7 +49,7 @@ function Tables(props) {
         <tbody>
           {props.data.map((item, idx) => (
             <tr key={idx}>
-              <td>
+              <td data-th={toggleValue ? "Date" : "Fecha"}>
                 <article className="date-container">
                   <span className="bold">
                     {dateFormat(new Date(parseInt(item["createdOn"])))}
@@ -57,7 +57,7 @@ function Tables(props) {
                   <span className="semibold">{item.dateDiff}</span>
                 </article>
               </td>
-              <td>
+              <td data-th={toggleValue ? "Campaign" : "Campaña"}>
                 <article className="campaign">
                   <img
                     src={require(`./../../Assets/${item["image_url"]}`).default}
@@ -69,7 +69,7 @@ function Tables(props) {
                   </div>
                 </article>
               </td>
-              <td>
+              <td data-th={toggleValue ? "View" : "Ver"}>
                 <Price
                   item={{
                     name: item["name"],
@@ -80,7 +80,7 @@ function Tables(props) {
                   toggleValue={toggleValue}
                 />
               </td>
-              <td>
+              <td data-th={toggleValue ? "Actions" : "Accións"}>
                 <article className="actiondata">
                   <article className="csv-container">
                     <img
