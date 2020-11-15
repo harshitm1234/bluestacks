@@ -10,6 +10,7 @@ import config from "./config";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    /**Initialize firebase with config for database connection */
     Firebase.initializeApp(config);
 
     this.state = {
@@ -18,6 +19,10 @@ class App extends React.Component {
     };
   }
 
+  /**
+   * Set Active selection when header items are clicked
+   * @param {*} renderElement 
+   */
   componentToRender = (renderElement) => {
     this.setState({ renderComponent: renderElement });
   };

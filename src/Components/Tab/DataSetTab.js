@@ -24,6 +24,11 @@ function DataSetTab(props) {
     });
   };
 
+  /**
+   * Update data with newdate when item is changed
+   * @param {*} newdate 
+   * @param {*} item 
+   */
   const updateData = (newdate, item) => {
     const newJsonData = newData.map((data) => {
       if (data["name"] === item["name"]) {
@@ -35,6 +40,10 @@ function DataSetTab(props) {
     mapData(newJsonData);
   };
 
+  /**
+   * Map data to section according to date
+   * @param {*} dataToMap 
+   */
   const mapData = (dataToMap) => {
     dataToMap = dataToMap.sort((a, b) =>
       a.createdOn < b.createdOn ? 1 : b.createdOn < a.createdOn ? -1 : 0
@@ -62,6 +71,10 @@ function DataSetTab(props) {
     setTabData(obj);
   };
 
+  /**
+   * Get date difference and determine date section
+   * @param {1} date 
+   */
   const daySection = (date) => {
     let currDate = new Date();
     let diff = Math.abs(date.getTime() - currDate.getTime());
@@ -77,6 +90,9 @@ function DataSetTab(props) {
     }
   };
 
+  /**
+   * Determine which data to render as per user selection
+   */
   const dataToRender = () => {
     if (renderComponent === "UpcomingCampaigns") {
       return tabData.upComing;

@@ -19,8 +19,8 @@ function Tables(props) {
     "Nov",
     "Dec",
   ];
-  // to get date in defined format
 
+  // to get date in defined format
   function dateFormat(date) {
     return (
       months[date.getUTCMonth()] +
