@@ -20,14 +20,17 @@ function CalendarView(props) {
 
   /**
    * Check if clicked outside calendar then close calendar
-   * @param {*} e 
+   * @param {*} e
    */
   const handleOutsideClick = (e) => {
-    if (componentReference.current?.contains(e.target)) {
+    if (
+      componentReference.current?.contains(e.target) ||
+      e?.target?.innerText == "Schedule Again"
+    ) {
       return;
     }
-    if(!viewCalendar){
-        setViewCalendar(false);
+    if (!viewCalendar) {
+      setViewCalendar(false);
     }
   };
 
